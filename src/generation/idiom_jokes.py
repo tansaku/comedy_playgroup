@@ -14,6 +14,7 @@ import openai
 GPT_MODEL = "gpt-5"
 RANDOM_SEED = 42
 PROMPT_VERSION = "1.1-idiom"
+IDIOMS_FILE_DEFAULT = os.path.join("data", "all_idioms.txt")
 RESULTS_FILE = os.path.join("results", "idiom_jokes_results.json")
 CACHE_FILE = os.path.join("caches", "idiom_joke_cache.json")
 
@@ -63,6 +64,27 @@ try:
     load_dotenv()
 except ModuleNotFoundError:
     pass
+
+
+def read_idioms(path: str) -> List[str]:
+    idioms: List[str] = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            phrase = line.strip()
+            if not phrase:
+                continue
+            # Skip extremely short fragments
+            if len(phrase) < 6:
+                continue
+            idioms.append(phrase)
+    return idioms
+
+
+def sample_idioms(idioms: List[str], count: int, seed: Optional[int]) -> List[str]:
+    rnd = random.Random(seed)
+    if count >= len(idioms):
+        return idioms[:]
+    return rnd.sample(idioms, count)
 
 
 # ------------------------------- Caching ---------------------------------
@@ -219,6 +241,12 @@ def main():
         description="Generate jokes from idioms with GPT-5"
     )
     parser.add_argument(
+        "--file", type=str, default=IDIOMS_FILE_DEFAULT, help="Idioms file path"
+    )
+    parser.add_argument(
+        "--random", type=int, metavar="N", help="Generate jokes for N random idioms"
+    )
+    parser.add_argument(
         "--idiom", type=str, help="Generate a joke for a specific idiom"
     )
     parser.add_argument(
@@ -243,10 +271,22 @@ def main():
     if args.seed is not None:
         random.seed(args.seed)
 
+    # Load idioms
+    try:
+        idioms = read_idioms(args.file)
+    except FileNotFoundError:
+        print(f"[ERROR] Idioms file not found: {args.file}")
+        sys.exit(1)
+
     # Determine target idioms
     targets: List[str]
     if args.idiom:
         targets = [args.idiom]
+    elif args.random:
+        targets = sample_idioms(idioms, args.random, args.seed)
+    else:
+        # Default small batch to test quickly
+        targets = sample_idioms(idioms, 3, args.seed)
 
     cfg = GenerationConfig(
         model=args.model,

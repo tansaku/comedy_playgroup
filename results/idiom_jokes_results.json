@@ -28,5 +28,93 @@
       "git_commit": "unknown",
       "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
     }
+  },
+  {
+    "idiom": "pay for (someone)",
+    "joke": "I’m the guy who always pays for people—my wallet’s a charity, and tonight it filed for bankruptcy.",
+    "transformation": "A boastful setup about generosity is twisted into a vivid, embarrassing financial image, flipping the positive act into a humorous consequence.",
+    "mechanisms": [
+      "Brag-Setup → Humiliating Reveal"
+    ],
+    "phonetic_devices": [],
+    "semantic_devices": [
+      "misdirection",
+      "hyperbole",
+      "inversion"
+    ],
+    "explanation": "The joke keeps the spirit of paying for others but lands with a concrete, self-deprecating image (wallet bankrupt) that undercuts the brag in a surprising way.",
+    "api_time_seconds": 33.096,
+    "from_cache": false,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762701054.381726,
+      "git_commit": "c5c425ed617994f4f581088cab45d1942a38465c",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "affable personality",
+    "joke": "People say I’ve got an affable personality—polite, pleasant, perfectly performative—until I volunteered for a team headshot and walked out with cake on my head.",
+    "transformation": "Turned the calm, friendly vibe into a brag that backfires into a vivid, embarrassing moment—the cake-on-head gag that undercuts the boast.",
+    "mechanisms": [
+      "Brag-Setup → Humiliating Reveal",
+      "Misdirection",
+      "Visual exaggeration"
+    ],
+    "phonetic_devices": [
+      "Alliteration",
+      "Cadence echo"
+    ],
+    "semantic_devices": [
+      "Inversion of compliment into embarrassment",
+      "Concrete, vivid image (cake on head)"
+    ],
+    "explanation": "The joke preserves the familiar idea of an affable personality but pivots to an embarrassing, memorable moment. Alliteration reinforces the cadence of the boast, while the cake-on-head image provides a clear, humorous visual payoff.",
+    "api_time_seconds": 45.178,
+    "from_cache": false,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762701099.589918,
+      "git_commit": "c5c425ed617994f4f581088cab45d1942a38465c",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "Cutting Teeth",
+    "joke": "I'm cutting teeth in the startup world—turns out I'm just gnawing through the pitch deck with braces.",
+    "transformation": "Brag-Setup → Humiliating Reveal; leverages dental imagery to subvert the idea of sharp progress into a concrete, funny struggle.",
+    "mechanisms": [
+      "Brag-setup to humiliating reveal",
+      "self-deprecation",
+      "misdirection",
+      "concrete imagery"
+    ],
+    "phonetic_devices": [
+      "alliteration",
+      "initial-consonant echo",
+      "cadence mirror"
+    ],
+    "semantic_devices": [
+      "reinforcement (teeth/gnaw)",
+      "inversion (progress -> gnawing the deck)"
+    ],
+    "explanation": "Keeps the idiom recognizable but pivots to a vivid, relatable image of struggling through a pitch deck; the dental motif reinforces 'teeth' while the self-deprecating twist lands the joke with a concrete, modern context.",
+    "api_time_seconds": 38.875,
+    "from_cache": false,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762701138.4975739,
+      "git_commit": "c5c425ed617994f4f581088cab45d1942a38465c",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
   }
 ]
