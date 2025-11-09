@@ -96,6 +96,71 @@ Strengths: Crisp setup and punch with strong misdirection, Effective double mean
 Weaknesses: Relies on UK-specific context, reducing resonance for non-UK audiences, Phrasing could be ambiguous on first listen, potentially delaying the punchline, As a short one-liner, it may not satisfy audiences who prefer longer build-up or broader relatability
 ```
 
+### Generate and Assess a Joke, comparing to a baseline
+
+First you need to create a baseline, which is a set of jokes of some minimum quality, or select an existing baseline.
+
+You can list the available baselines like so
+
+```bash
+python src/evaluation/assessor.py --list-baselines
+```
+
+Example Output:
+```
+Available baselines:
+  refined_7s: 7 jokes, mean score 6.26
+```
+
+Here's how the refined_7s baseline was created (ALREADY RAN SO YOU DON'T NEED TO):
+
+```bash
+python src/evaluation/assessor.py --baseline data/refined_7s.txt --baseline-name refined_7s
+```
+
+Example output
+```
+[INFO] Establishing baseline 'refined_7s' from 7 jokes...
+[1/7] Evaluating: They had plug sockets mounted directly in the ligh...
+[2/7] Evaluating: We've had a lot of similar performers at out comed...
+[3/7] Evaluating: I take after my dad, he gets really angry if I eat...
+[4/7] Evaluating: I love blowing raspberries on babies’ bellies but ...
+[5/7] Evaluating: My wife goes catatonic when gambling with cards. P...
+[6/7] Evaluating: I was running and spilt my ADHD medication everywh...
+[7/7] Evaluating: She’s my cousin once removed … from a Wetherspoons...
+[INFO] Baseline 'refined_7s' established:
+  Mean score: 6.26
+  Top 10% threshold: 7.00
+  Top 25% threshold: 6.80
+```
+
+Given a baseline you can generate and evaluate in a single step:
+
+```
+pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --idiom "expect the unexpected" --assess
+```
+
+Example Output:
+```
+[INFO] Generating 1 idiom-based jokes | model=gpt-5-nano | cache enabled
+[1/1] expect the unexpected
+   → I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.
+   ⏱ [from cache]
+[INFO] Assessing jokes and comparing against baseline…
+[INFO] Performing pairwise comparison against 7 baseline jokes...
+  vs baseline #1: New Joke wins
+  vs baseline #2: New Joke wins
+  vs baseline #3: New Joke wins
+  vs baseline #4: Baseline Joke wins
+  vs baseline #5: Baseline Joke wins
+  vs baseline #6: New Joke wins
+  vs baseline #7: New Joke wins
+[INFO] Pairwise results: 5/7 wins (71.4%)
+[INFO] Saved 1 results → results/idiom_jokes_results.json
+```
+
+Now if we believed the assessment we could argue we should replace the least funny joke in our baseline with the new joke, or at least add it to our baseline.
+
 
 ## What's in This Repository?
 

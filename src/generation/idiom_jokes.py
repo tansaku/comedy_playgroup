@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+"""
+Idiom Joke Generator - Create high-quality jokes from idioms/stock phrases using GPT-5
+
+Features:
+- Reads idioms from data/all_idioms.txt (or a custom file)
+- Generates jokes by artfully transforming idioms with phonetic + semantic mechanisms
+- Structured outputs via JSON schema for reliable parsing
+- Caching to avoid repeat API calls (per idiom, model, prompt version)
+- Optional cache bypass for speed testing with timing measurements
+- Model selection support (gpt-5, gpt-5-mini, gpt-5-nano)
+- Optional assessment and pairwise comparison against an existing baseline
+- Reproducible sampling via random seed
+"""
+
+
 import argparse
 import json
 import os
@@ -14,9 +30,11 @@ import openai
 GPT_MODEL = "gpt-5"
 RANDOM_SEED = 42
 PROMPT_VERSION = "1.1-idiom"
+SCORE_THRESHOLD = 7.0
 IDIOMS_FILE_DEFAULT = os.path.join("data", "all_idioms.txt")
 RESULTS_FILE = os.path.join("results", "idiom_jokes_results.json")
 CACHE_FILE = os.path.join("caches", "idiom_joke_cache.json")
+BASELINE_NAME_DEFAULT = "refined_7s"
 
 
 # ------------------------------ Data classes -----------------------------
@@ -235,6 +253,40 @@ def attach_metadata(record: Dict, cfg: GenerationConfig) -> Dict:
     return enriched
 
 
+def evaluate_with_assessor(jokes: List[Dict], baseline_name: str) -> List[Dict]:
+    try:
+        from src.evaluation.assessor import JokeAssessor
+
+        assessor = JokeAssessor()
+    except (ImportError, RuntimeError):
+        print("[WARN] assessor unavailable")
+        return jokes
+
+    enhanced: List[Dict] = []
+    for j in jokes:
+        joke_text = j.get("joke", "").strip()
+        if not joke_text:
+            enhanced.append(j)
+            continue
+
+        assessment = assessor.evaluate_joke(joke_text)
+        j["assessment"] = assessment
+        score = assessment.get("score", 0)
+
+        if score >= SCORE_THRESHOLD:
+            try:
+                comparison = assessor.pairwise_compare_to_baseline(
+                    joke_text, baseline_name, min_score_threshold=SCORE_THRESHOLD
+                )
+                j["baseline_comparison"] = comparison
+            except ValueError as err:
+                j["baseline_comparison"] = {"error": str(err)}
+
+        enhanced.append(j)
+
+    return enhanced
+
+
 # --------------------------------- Main ----------------------------------
 def main():
     parser = argparse.ArgumentParser(
@@ -244,7 +296,11 @@ def main():
         "--file", type=str, default=IDIOMS_FILE_DEFAULT, help="Idioms file path"
     )
     parser.add_argument(
-        "--random", type=int, metavar="N", help="Generate jokes for N random idioms"
+        "--random",
+        type=int,
+        metavar="N",
+        default=3,
+        help="Generate jokes for N random idioms",
     )
     parser.add_argument(
         "--idiom", type=str, help="Generate a joke for a specific idiom"
@@ -264,6 +320,17 @@ def main():
     parser.add_argument(
         "--seed", type=int, default=RANDOM_SEED, help="Random seed for reproducibility"
     )
+    parser.add_argument(
+        "--assess",
+        action="store_true",
+        help="Evaluate jokes with assessor and compare to baseline",
+    )
+    parser.add_argument(
+        "--baseline",
+        type=str,
+        default=BASELINE_NAME_DEFAULT,
+        help="Baseline name for comparison",
+    )
 
     args = parser.parse_args()
 
@@ -282,11 +349,8 @@ def main():
     targets: List[str]
     if args.idiom:
         targets = [args.idiom]
-    elif args.random:
-        targets = sample_idioms(idioms, args.random, args.seed)
     else:
-        # Default small batch to test quickly
-        targets = sample_idioms(idioms, 3, args.seed)
+        targets = sample_idioms(idioms, args.random, args.seed)
 
     cfg = GenerationConfig(
         model=args.model,
@@ -319,6 +383,10 @@ def main():
             print("   ⏱ [from cache]")
         elif "api_time_seconds" in enriched:
             print(f"   ⏱ {enriched['api_time_seconds']:.3f}s")
+
+    if args.assess:
+        print("[INFO] Assessing jokes and comparing against baseline…")
+        results = evaluate_with_assessor(results, args.baseline)
 
     # Persist
     existing = load_json(RESULTS_FILE, [])

@@ -1,0 +1,271 @@
+{
+  "refined_7s": {
+    "name": "refined_7s",
+    "total_jokes": 7,
+    "mean_score": 6.257142857142857,
+    "median_score": 6.5,
+    "top_10_percent_threshold": 7,
+    "top_25_percent_threshold": 6.8,
+    "created_at": 1762707953.840668,
+    "version_metadata": {
+      "assessor_version": "1.0.0",
+      "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+      "assessment_model": "gpt-5",
+      "timestamp": 1762707953.8589928
+    },
+    "results": [
+      {
+        "joke": "I love blowing raspberries on babies\u2019 bellies but really any fruit will do",
+        "assessment": {
+          "score": 7,
+          "reasoning": "Clever, concise wordplay with a neat misdirection from the idiom \u201cblowing raspberries\u201d to the literal category of fruit. The image of \u201cbabies\u2019 bellies\u201d is vivid and wholesome, and the twist (\u201cany fruit will do\u201d) adds a playful absurdity. However, the logic of extending the idiom beyond raspberries is a bit forced; only \u201craspberry\u201d carries the idiomatic meaning, so broadening to all fruit slightly blunts the precision of the joke. It lands as a light chuckle rather than a big laugh, and it lacks a second beat or escalation that could heighten the surprise.",
+          "categories": [
+            "wordplay",
+            "pun",
+            "misdirection",
+            "incongruity",
+            "absurd",
+            "one-liner",
+            "clean humor"
+          ],
+          "strengths": [
+            "Tight, economical setup and punch",
+            "Clear misdirection from idiom to literal reading",
+            "Vivid, playful imagery and pleasing alliteration (\u201cbabies\u2019 bellies\u201d)",
+            "Accessible and clean; broad audience appeal",
+            "Good tweet- or one-liner format"
+          ],
+          "weaknesses": [
+            "The premise stretch (from raspberries to \u201cany fruit\u201d) weakens the internal logic",
+            "No escalation or tag; ends right at the first twist",
+            "Potential for mild discomfort due to baby imagery for some audiences",
+            "Relies on a single pun; limited comedic ceiling",
+            "Ambiguity may cause a momentary parse hiccup for some listeners"
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707922.1849961
+        },
+        "rank": 1
+      },
+      {
+        "joke": "I take after my dad, he gets really angry if I eat first",
+        "assessment": {
+          "score": 6.8,
+          "reasoning": "Clever one-liner that pivots on the idiom \u201ctake after.\u201d The setup primes the common meaning (resemble a parent), and the punchline reinterprets it literally as eating order, creating a neat misdirection. It\u2019s concise, clean, and structurally sound. The laugh is more of a knowing chuckle than a big pop, as it\u2019s primarily a language pun with modest stakes. Its success depends on audience familiarity with the idiom, and the current comma slightly blunts the timing; a stronger pause would sharpen the turn.",
+          "categories": [
+            "wordplay",
+            "pun",
+            "misdirection",
+            "one-liner",
+            "linguistic/ambiguity",
+            "deadpan"
+          ],
+          "strengths": [
+            "Tight setup-punch structure with clear misdirection",
+            "Clever double meaning of a common idiom",
+            "Economical wording; easy to deliver in a deadpan style",
+            "Family-friendly and broadly accessible content"
+          ],
+          "weaknesses": [
+            "Relies on audience knowing the idiom \u201ctake after,\u201d which may limit universality",
+            "Pun-forward humor tends to yield smaller laughs (\u201cgroaner\u201d risk)",
+            "Low stakes; lacks vivid imagery or escalation",
+            "Rhythm could be improved\u2014an em dash or beat before the turn helps (e.g., \u201cI take after my dad\u2014he gets really angry if I eat first.\u201d)",
+            "Could benefit from a quick tag or follow-up to build a bigger laugh"
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707907.4072058
+        },
+        "rank": 2
+      },
+      {
+        "joke": "We've had a lot of similar performers at out comedy show. Again last night we had conjoined twin comics back to back. It\u2019s the only way they can stand.",
+        "assessment": {
+          "score": 6.5,
+          "reasoning": "Clever two-layer wordplay drives the laugh: \u201cback-to-back\u201d flips from scheduling jargon to a literal image, and \u201cstand\u201d toggles between physical posture and tolerance. The misdirection is clean and the economy of language suits a one-liner. However, the target involves a disability, which can read as punching down and dampen audience buy-in. The internal logic is a bit rickety (conjoined twins aren\u2019t typically literally back-to-back), and the setup contains minor redundancy/typo that blunts the snap. Strong craft, but the premise risks alienating part of the room.",
+          "categories": [
+            "wordplay",
+            "pun",
+            "double entendre",
+            "misdirection",
+            "one-liner",
+            "edgy/dark",
+            "absurd"
+          ],
+          "strengths": [
+            "Efficient one-liner structure with clear setup and twist",
+            "Dual pun on both \u201cback-to-back\u201d and \u201cstand\u201d multiplies payoff",
+            "Good use of misdirection from booking jargon to literal image",
+            "Crisp rhythm; the laugh line lands on the final word"
+          ],
+          "weaknesses": [
+            "Punching down risk (disability-based humor) can cost audience goodwill",
+            "Plausibility strain (literal back-to-back conjoining is rare) may distract",
+            "Minor wording issues: \u201cout\u201d vs \u201cour,\u201d and a slightly padded setup",
+            "Ambiguity: some may catch only one of the two meanings of \u201cstand,\u201d softening the hit",
+            "Premise can read mean-spirited rather than playful, depending on delivery and crowd context"
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707894.8522801
+        },
+        "rank": 3
+      },
+      {
+        "joke": "I was running and spilt my ADHD medication everywhere. More haste less speed",
+        "assessment": {
+          "score": 6.5,
+          "reasoning": "The joke hinges on a neat double meaning of \u201cspeed\u201d (velocity vs. stimulant drugs) layered onto a familiar proverb. That linguistic pivot is clever and economical, delivering a compact one-liner with a clear setup and a tidy twist. However, it relies on audience knowledge that ADHD meds are often stimulants and that \u201cspeed\u201d is drug slang; without that, it plays as a flat restatement of the idiom. It also risks reading as glib about neurodivergent medication, which can dampen laughter for some. Structurally, it\u2019s a clean tweet-sized pun but doesn\u2019t escalate or build texture, limiting impact beyond a quick smirk.",
+          "categories": [
+            "wordplay",
+            "double entendre",
+            "idiom subversion",
+            "observational",
+            "situational irony",
+            "one-liner"
+          ],
+          "strengths": [
+            "Clever pivot on the dual meaning of \u201cspeed.\u201d",
+            "Economical setup and punch; lands quickly.",
+            "Subverts a well-known idiom for surprise.",
+            "Clear internal logic; the spill causes \u201cless speed\u201d both literally and figuratively.",
+            "Memorable as a concise one-liner."
+          ],
+          "weaknesses": [
+            "Comprehension depends on recognizing drug slang and stimulant-based ADHD meds.",
+            "May feel insensitive or punch-down adjacent to some audiences.",
+            "Low escalation and minimal imagery; lands as a quick pun rather than a big laugh.",
+            "Slight wording clunk (\u201crunning and spilt\u201d) weakens the haste premise; tighter phrasing could help.",
+            "Predictable once the double meaning is spotted; limited replay value."
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707953.8205829
+        },
+        "rank": 4
+      },
+      {
+        "joke": "She\u2019s my cousin once removed \u2026 from a Wetherspoons by security",
+        "assessment": {
+          "score": 6.5,
+          "reasoning": "The joke relies on crisp misdirection: 'cousin once removed' sets up a familiar genealogical line, then 'from a Wetherspoons by security' reframes the phrase as a situation where someone was ejected by security. The humor comes from the double meaning and a brisk, one-line delivery. The UK-specific reference to Wetherspoons adds cultural color that can help the line land with audiences who recognize the pub and its security culture. Its brevity helps the twist land quickly. Potential drawbacks include reliance on UK pub context (less accessible to non-UK audiences) and a phrasing ambiguity that could slightly delay the punchline if not delivered with a careful pause.",
+          "categories": [
+            "wordplay",
+            "one-liner",
+            "observational"
+          ],
+          "strengths": [
+            "Crisp setup and punch with strong misdirection",
+            "Effective double meaning between genealogical term and pub security",
+            "Adds cultural flavor with a recognizable UK reference (Wetherspoons)"
+          ],
+          "weaknesses": [
+            "Relies on UK-specific context, reducing resonance for non-UK audiences",
+            "Phrasing could be ambiguous on first listen, potentially delaying the punchline",
+            "As a short one-liner, it may not satisfy audiences who prefer longer build-up or broader relatability"
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707953.840566
+        },
+        "rank": 5
+      },
+      {
+        "joke": "My wife goes catatonic when gambling with cards. Poker? Doesn\u2019t seem to help",
+        "assessment": {
+          "score": 6,
+          "reasoning": "Clever homophonic wordplay (\u201cpoker\u201d/\u201cpoke her\u201d) yields a quick, groan-worthy twist. The two-sentence structure sets up card-gambling context and then pivots to the double meaning cleanly. However, the logic is a bit muddled: the setup frames poker as the cause (a card game) while the punch suggests it as a remedy (poke her), creating a slight coherence clash. The pun also lands stronger out loud than on the page, where the homophone isn\u2019t visually distinguished. Mild edginess around catatonia/mental health may put off some audiences. Overall, a neat dad-joke pun with a small but noticeable clarity gap.",
+          "categories": [
+            "wordplay/pun",
+            "one-liner",
+            "misdirection",
+            "dad joke/groaner",
+            "light absurdity"
+          ],
+          "strengths": [
+            "Tight setup-to-punchline economy",
+            "Clever homophone with dual meanings",
+            "Effective misdirection anchored by the card-game context",
+            "Punchy rhythm; the short second sentence heightens the reveal",
+            "High joke-density for its length"
+          ],
+          "weaknesses": [
+            "Semantic wobble: poker is both the cause (card game) and proposed remedy (poke her), blurring logic",
+            "Works better spoken than written due to homophone reliance",
+            "Potential insensitivity around mental health/catatonia",
+            "Slightly forced premise to enable the pun",
+            "Limited replay value typical of simple puns"
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707936.2887838
+        },
+        "rank": 6
+      },
+      {
+        "joke": "They had plug sockets mounted directly in the light switches, shocking!",
+        "assessment": {
+          "score": 4.5,
+          "reasoning": "The joke hinges on a straightforward double meaning of \u201cshocking\u201d (surprising vs. electric shock). It\u2019s concise and immediately legible, but the pun is familiar and predictable, which limits impact. The setup provides a mildly absurd visual (plug sockets in light switches), yet the image is slightly confusing and may slow comprehension. There\u2019s minimal misdirection or escalation; it functions more as a tag than a full setup\u2013punchline structure. Overall, it\u2019s a clean, groan-worthy pun that lands, but lacks novelty and comedic build.",
+          "categories": [
+            "pun",
+            "wordplay",
+            "observational",
+            "situational",
+            "dad joke",
+            "dry humor"
+          ],
+          "strengths": [
+            "Clear, instantly recognizable double meaning of \u201cshocking.\u201d",
+            "Concise and efficient; easy to deliver and remember.",
+            "Family-friendly and broadly accessible.",
+            "Concrete visual that supports the pun.",
+            "Works as a quick tag line in conversation or a caption."
+          ],
+          "weaknesses": [
+            "Predictable and well\u2011trodden pun reduces surprise and laugh intensity.",
+            "The physical premise (sockets in switches) is slightly unclear; phrasing could be cleaner.",
+            "No build-up, misdirection, or escalation to heighten the payoff.",
+            "Relies on a single-word punch; lacks secondary tags or twist.",
+            "Regional phrasing (\u201cplug sockets\u201d) may narrow resonance; \u201coutlets\u201d might scan better for some audiences."
+          ]
+        },
+        "version_metadata": {
+          "assessor_version": "1.0.0",
+          "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+          "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+          "assessment_model": "gpt-5",
+          "timestamp": 1762707860.2962182
+        },
+        "rank": 7
+      }
+    ]
+  }
+}

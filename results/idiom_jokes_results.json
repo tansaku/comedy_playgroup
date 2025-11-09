@@ -116,5 +116,232 @@
       "git_commit": "c5c425ed617994f4f581088cab45d1942a38465c",
       "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
     }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": true,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762707143.160119,
+      "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": true,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762707236.1717498,
+      "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    },
+    "assessment": {
+      "score": 7.2,
+      "reasoning": "The joke smartly subverts a cliché (“expect the unexpected”) with an absurd, vivid image: a coffee machine delivering a TED Talk about procrastination. The cultural specificity of “TED Talk” adds punch and modern relatability, while the appliance’s judgmental persona heightens the humor through personification and self-deprecation. The structure is clean—setup (idiom) to twist (absurd scenario)—and the imagery is memorable. However, it leans on a familiar trope (TED Talk as shorthand for overlong lecturing) and a well-worn idiom, and it stops at a single beat rather than escalating or adding a secondary tag. It’s witty and polished, but not explosively original.",
+      "categories": [
+        "observational",
+        "absurd",
+        "surreal",
+        "personification",
+        "self-deprecating",
+        "incongruity",
+        "topical/cultural reference",
+        "light wordplay",
+        "irony"
+      ],
+      "strengths": [
+        "Strong incongruity between everyday idiom and surreal payoff",
+        "Vivid, specific image (“TED Talk”) that quickly communicates tone",
+        "Relatable theme (procrastination) grounds the absurdity",
+        "Efficient structure and economy of language",
+        "Personification creates character-driven humor"
+      ],
+      "weaknesses": [
+        "Relies on a common idiom and a familiar TED Talk trope",
+        "Single-beat punchline—no escalation or tag to compound the laugh",
+        "Light on wordplay beyond the premise; could sharpen with a secondary pun or call-back",
+        "Could tighten or heighten the specificity (e.g., TED jargon) for extra texture"
+      ]
+    },
+    "baseline_comparison": {
+      "error": "Baseline 'data/refined_7s.txt' not found. Available: []"
+    }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": true,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762708037.856739,
+      "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": true,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1762708207.290685,
+      "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    },
+    "assessment": {
+      "score": 7.2,
+      "reasoning": "The joke smartly subverts a cliché (“expect the unexpected”) with an absurd, vivid image: a coffee machine delivering a TED Talk about procrastination. The cultural specificity of “TED Talk” adds punch and modern relatability, while the appliance’s judgmental persona heightens the humor through personification and self-deprecation. The structure is clean—setup (idiom) to twist (absurd scenario)—and the imagery is memorable. However, it leans on a familiar trope (TED Talk as shorthand for overlong lecturing) and a well-worn idiom, and it stops at a single beat rather than escalating or adding a secondary tag. It’s witty and polished, but not explosively original.",
+      "categories": [
+        "observational",
+        "absurd",
+        "surreal",
+        "personification",
+        "self-deprecating",
+        "incongruity",
+        "topical/cultural reference",
+        "light wordplay",
+        "irony"
+      ],
+      "strengths": [
+        "Strong incongruity between everyday idiom and surreal payoff",
+        "Vivid, specific image (“TED Talk”) that quickly communicates tone",
+        "Relatable theme (procrastination) grounds the absurdity",
+        "Efficient structure and economy of language",
+        "Personification creates character-driven humor"
+      ],
+      "weaknesses": [
+        "Relies on a common idiom and a familiar TED Talk trope",
+        "Single-beat punchline—no escalation or tag to compound the laugh",
+        "Light on wordplay beyond the premise; could sharpen with a secondary pun or call-back",
+        "Could tighten or heighten the specificity (e.g., TED jargon) for extra texture"
+      ]
+    },
+    "baseline_comparison": {
+      "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+      "score": 7.2,
+      "assessment": {
+        "score": 7.2,
+        "reasoning": "The joke smartly subverts a cliché (“expect the unexpected”) with an absurd, vivid image: a coffee machine delivering a TED Talk about procrastination. The cultural specificity of “TED Talk” adds punch and modern relatability, while the appliance’s judgmental persona heightens the humor through personification and self-deprecation. The structure is clean—setup (idiom) to twist (absurd scenario)—and the imagery is memorable. However, it leans on a familiar trope (TED Talk as shorthand for overlong lecturing) and a well-worn idiom, and it stops at a single beat rather than escalating or adding a secondary tag. It’s witty and polished, but not explosively original.",
+        "categories": [
+          "observational",
+          "absurd",
+          "surreal",
+          "personification",
+          "self-deprecating",
+          "incongruity",
+          "topical/cultural reference",
+          "light wordplay",
+          "irony"
+        ],
+        "strengths": [
+          "Strong incongruity between everyday idiom and surreal payoff",
+          "Vivid, specific image (“TED Talk”) that quickly communicates tone",
+          "Relatable theme (procrastination) grounds the absurdity",
+          "Efficient structure and economy of language",
+          "Personification creates character-driven humor"
+        ],
+        "weaknesses": [
+          "Relies on a common idiom and a familiar TED Talk trope",
+          "Single-beat punchline—no escalation or tag to compound the laugh",
+          "Light on wordplay beyond the premise; could sharpen with a secondary pun or call-back",
+          "Could tighten or heighten the specificity (e.g., TED jargon) for extra texture"
+        ]
+      },
+      "baseline_name": "refined_7s",
+      "baseline_mean": 6.257142857142857,
+      "meets_score_threshold": true,
+      "pairwise_performed": true,
+      "comparison_metadata": {
+        "assessor_version": "1.0.0",
+        "git_commit": "e21fd33ecb6ae48f1e7d7168520aa6bf5cac4ab8",
+        "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]",
+        "assessment_model": "gpt-5",
+        "timestamp": 1762708263.8781672
+      },
+      "wins_against_baseline": 5,
+      "total_baseline_comparisons": 7,
+      "win_rate": 0.7142857142857143,
+      "beats_majority": true,
+      "qualifies_for_baseline": true
+    }
   }
 ]
