@@ -42,7 +42,10 @@ pipenv sync
 ```bash
 # Simple generation from an idiom
 pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --idiom "expect the unexpected"
+```
 
+Example output:
+```
 [INFO] Generating 1 idiom-based jokes | model=gpt-5-nano | cache enabled
 [1/1] expect the unexpected
    → I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.
@@ -53,7 +56,10 @@ pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --idiom "expe
 ```bash
 # Generate 3 jokes based on random idioms
 pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --random 3
+```
 
+Example output:
+```
 [INFO] Generating 3 idiom-based jokes | model=gpt-5-nano | cache enabled
 [1/3] pay for (someone)
    → I’m the guy who always pays for people—my wallet’s a charity, and tonight it filed for bankruptcy.
@@ -68,6 +74,28 @@ pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --random 3
 
 ```
 
+### Assess a Joke
+
+The vanilla assessor rates a joke on a scale of 1-10 and provides a breakdown of the joke
+
+```bash
+pipenv run python src/evaluation/assessor.py --evaluate "She’s my cousin once removed … from a Wetherspoons by security" --model gpt-5-nano
+```
+Example output:
+```
+Joke: She’s my cousin once removed … from a Wetherspoons by security
+
+Score: 6.5/10
+
+Reasoning: The joke relies on crisp misdirection: 'cousin once removed' sets up a familiar genealogical line, then 'from a Wetherspoons by security' reframes the phrase as a situation where someone was ejected by security. The humor comes from the double meaning and a brisk, one-line delivery. The UK-specific reference to Wetherspoons adds cultural color that can help the line land with audiences who recognize the pub and its security culture. Its brevity helps the twist land quickly. Potential drawbacks include reliance on UK pub context (less accessible to non-UK audiences) and a phrasing ambiguity that could slightly delay the punchline if not delivered with a careful pause.
+
+Categories: wordplay, one-liner, observational
+
+Strengths: Crisp setup and punch with strong misdirection, Effective double meaning between genealogical term and pub security, Adds cultural flavor with a recognizable UK reference (Wetherspoons)
+
+Weaknesses: Relies on UK-specific context, reducing resonance for non-UK audiences, Phrasing could be ambiguous on first listen, potentially delaying the punchline, As a short one-liner, it may not satisfy audiences who prefer longer build-up or broader relatability
+```
+
 
 ## What's in This Repository?
 
@@ -76,7 +104,8 @@ pipenv run python src/generation/idiom_jokes.py --model gpt-5-nano --random 3
 ```
 comedy_playgroup/
 ├── src/
-│   └── generation/      # Joke generation approaches
+│   ├── evaluation/      # Joke evaluation approaches (assessor.py)
+│   └── generation/      # Joke generation approaches (idiom_jokes.py)
 ├── data/                # Source materials (idioms)
 ├── caches/              # API response caches (save money!)
 └── results/             # Generated jokes

@@ -1,0 +1,21 @@
+{
+  "She\u2019s my cousin once removed \u2026 from a Wetherspoons by security": {
+    "score": 6.5,
+    "reasoning": "The joke relies on crisp misdirection: 'cousin once removed' sets up a familiar genealogical line, then 'from a Wetherspoons by security' reframes the phrase as a situation where someone was ejected by security. The humor comes from the double meaning and a brisk, one-line delivery. The UK-specific reference to Wetherspoons adds cultural color that can help the line land with audiences who recognize the pub and its security culture. Its brevity helps the twist land quickly. Potential drawbacks include reliance on UK pub context (less accessible to non-UK audiences) and a phrasing ambiguity that could slightly delay the punchline if not delivered with a careful pause.",
+    "categories": [
+      "wordplay",
+      "one-liner",
+      "observational"
+    ],
+    "strengths": [
+      "Crisp setup and punch with strong misdirection",
+      "Effective double meaning between genealogical term and pub security",
+      "Adds cultural flavor with a recognizable UK reference (Wetherspoons)"
+    ],
+    "weaknesses": [
+      "Relies on UK-specific context, reducing resonance for non-UK audiences",
+      "Phrasing could be ambiguous on first listen, potentially delaying the punchline",
+      "As a short one-liner, it may not satisfy audiences who prefer longer build-up or broader relatability"
+    ]
+  }
+}
