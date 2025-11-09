@@ -1,0 +1,23 @@
+{
+  "expect the unexpected|gpt-5-nano|1.1-idiom": {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": false
+  }
+}
