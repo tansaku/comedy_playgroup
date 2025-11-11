@@ -103,7 +103,7 @@ First you need to create a baseline, which is a set of jokes of some minimum qua
 You can list the available baselines like so
 
 ```bash
-python src/evaluation/assessor.py --list-baselines
+pipenv run python src/evaluation/assessor.py --list-baselines
 ```
 
 Example Output:
@@ -115,7 +115,7 @@ Available baselines:
 Here's how the refined_7s baseline was created (ALREADY RAN SO YOU DON'T NEED TO):
 
 ```bash
-python src/evaluation/assessor.py --baseline data/refined_7s.txt --baseline-name refined_7s
+pipenv run python src/evaluation/assessor.py --baseline data/refined_7s.txt --baseline-name refined_7s
 ```
 
 Example output
