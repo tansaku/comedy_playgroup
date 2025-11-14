@@ -17,6 +17,7 @@ ASSESSOR_VERSION = "1.0.0"
 RANDOM_SEED = 42  # For reproducible pairwise comparisons
 
 # Popular OpenRouter models for random selection
+# Note: Only including models verified to work with our prompts
 POPULAR_OPENROUTER_MODELS = [
     "anthropic/claude-3.5-sonnet",
     "anthropic/claude-3-opus",
@@ -28,7 +29,18 @@ POPULAR_OPENROUTER_MODELS = [
     "meta-llama/llama-3.1-70b-instruct",
     "meta-llama/llama-3.1-405b-instruct",
     "mistralai/mistral-large",
-    "x-ai/grok-2",
+]
+
+# Models that support OpenAI's structured output (json_schema)
+STRUCTURED_OUTPUT_MODELS = [
+    "openai/gpt-4o",
+    "openai/gpt-4o-mini",
+    "openai/gpt-4-turbo",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-5",
+    "gpt-5-mini",
+    "gpt-5-nano",
 ]
 
 
@@ -131,12 +143,27 @@ class JokeAssessor:
         5. Areas for improvement
 
         Be thorough but concise in your analysis.
+        Return your response as a JSON object with the following structure:
+        {{
+            "score": <number between 1-10>,
+            "reasoning": "<detailed explanation>",
+            "categories": ["<category1>", "<category2>", ...],
+            "strengths": ["<strength1>", "<strength2>", ...],
+            "weaknesses": ["<weakness1>", "<weakness2>", ...]
+        }}
         """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}],
-            response_format={
+        # Check if model supports structured outputs
+        supports_structured_output = self.model in STRUCTURED_OUTPUT_MODELS
+
+        # Build request parameters
+        request_params = {
+            "model": self.model,
+            "messages": [{"role": "user", "content": prompt}],
+        }
+
+        if supports_structured_output:
+            request_params["response_format"] = {
                 "type": "json_schema",
                 "json_schema": {
                     "name": "joke_assessment",
@@ -178,8 +205,11 @@ class JokeAssessor:
                         "additionalProperties": False,
                     },
                 },
-            },
-        )
+            }
+        else:
+            request_params["response_format"] = {"type": "json_object"}
+
+        response = self.client.chat.completions.create(**request_params)
 
         try:
             assessment = json.loads(response.choices[0].message.content)
@@ -382,12 +412,26 @@ class JokeAssessor:
         3. Brief reasoning for your decision
 
         Be decisive - avoid ties unless the jokes are truly equally funny.
+        Return your response as a JSON object with the following structure:
+        {{
+            "winner": "<A, B, or tie>",
+            "joke_a_score": <number between 1-10>,
+            "joke_b_score": <number between 1-10>,
+            "reasoning": "<brief explanation>"
+        }}
         """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}],
-            response_format={
+        # Check if model supports structured outputs
+        supports_structured_output = self.model in STRUCTURED_OUTPUT_MODELS
+
+        # Build request parameters
+        request_params = {
+            "model": self.model,
+            "messages": [{"role": "user", "content": prompt}],
+        }
+
+        if supports_structured_output:
+            request_params["response_format"] = {
                 "type": "json_schema",
                 "json_schema": {
                     "name": "pairwise_comparison",
@@ -422,8 +466,11 @@ class JokeAssessor:
                         "additionalProperties": False,
                     },
                 },
-            },
-        )
+            }
+        else:
+            request_params["response_format"] = {"type": "json_object"}
+
+        response = self.client.chat.completions.create(**request_params)
 
         try:
             result = json.loads(response.choices[0].message.content)

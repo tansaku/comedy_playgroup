@@ -106,5 +106,14 @@
     "explanation": "You expect the completion 'unexpected' but get a pivot at 'unex' to a relatable late-night ex-text; the familiar cadence stays while the meaning swerves, creating a sharp modern surprise.",
     "api_time_seconds": 24.772,
     "from_cache": false
+  },
+  "expect the unexpected|anthropic/claude-3.5-sonnet|1.1-idiom": {
+    "original_idiom": "expect the unexpected",
+    "one_liner": "Expect the unexpected, then pack an extra pair of pants just in case",
+    "mechanism_used": "Semantic Reinforcement with Humiliating Reveal",
+    "explanation": "The line maintains the wisdom of the original idiom while undercutting it with a specific, relatable image of over-preparation due to anxiety. The concrete detail of 'extra pair of pants' implies embarrassing accidents, creating a humorous contrast with the philosophical tone of the first half. The 'just in case' adds timing and makes it feel more conversational.",
+    "idiom": "expect the unexpected",
+    "api_time_seconds": 5.742,
+    "from_cache": false
   }
 }

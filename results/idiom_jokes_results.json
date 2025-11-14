@@ -408,5 +408,88 @@
       "git_commit": "591a568a8c5ecb1dfb1fdcc5488f3ac551582826",
       "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
     }
+  },
+  {
+    "original_idiom": "expect the unexpected",
+    "one_liner": "Expect the unexpected, then pack an extra pair of pants just in case",
+    "mechanism_used": "Semantic Reinforcement with Humiliating Reveal",
+    "explanation": "The line maintains the wisdom of the original idiom while undercutting it with a specific, relatable image of over-preparation due to anxiety. The concrete detail of 'extra pair of pants' implies embarrassing accidents, creating a humorous contrast with the philosophical tone of the first half. The 'just in case' adds timing and makes it feel more conversational.",
+    "idiom": "expect the unexpected",
+    "api_time_seconds": 5.742,
+    "from_cache": false,
+    "metadata": {
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1763122919.940314,
+      "git_commit": "78e8fac2a4f9049c3cf264a507cddec785afaff0",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "original_idiom": "expect the unexpected",
+    "one_liner": "Expect the unexpected, then pack an extra pair of pants just in case",
+    "mechanism_used": "Semantic Reinforcement with Humiliating Reveal",
+    "explanation": "The line maintains the wisdom of the original idiom while undercutting it with a specific, relatable image of over-preparation due to anxiety. The concrete detail of 'extra pair of pants' implies embarrassing accidents, creating a humorous contrast with the philosophical tone of the first half. The 'just in case' adds timing and makes it feel more conversational.",
+    "idiom": "expect the unexpected",
+    "api_time_seconds": 5.742,
+    "from_cache": true,
+    "metadata": {
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1763123064.052515,
+      "git_commit": "78e8fac2a4f9049c3cf264a507cddec785afaff0",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "original_idiom": "expect the unexpected",
+    "one_liner": "I always expect the unexpected, which is why I keep emergency snacks in my sock drawer. And emergency socks in my snack drawer.",
+    "mechanism_used": "Semantic Reinforcement + Humiliating Reveal",
+    "explanation": "The line maintains the spirit of preparedness from the original idiom but creates humor through an absurd circular logic. The first half seems like standard preparedness advice, while the second half reveals an overthinking personality taken to a comically illogical extreme. The parallel structure and specific details (sock drawer, snack drawer) strengthen the comedic effect.",
+    "idiom": "expect the unexpected",
+    "api_time_seconds": 5.337,
+    "from_cache": false,
+    "metadata": {
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": false,
+      "timestamp": 1763123082.919165,
+      "git_commit": "78e8fac2a4f9049c3cf264a507cddec785afaff0",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "Expect the unexpected? I prefer to expect the unrespected - like my dating profile.",
+    "transformation": "Changed 'unexpected' to 'unrespected' while maintaining the original rhythm and adding a self-deprecating reveal",
+    "mechanisms": [
+      "Phonetic + Semantic Reinforcement",
+      "Self-deprecating twist"
+    ],
+    "phonetic_devices": [
+      "Internal rhyme (-ect)",
+      "Preserved syllabic pattern"
+    ],
+    "semantic_devices": [
+      "Wordplay on 'un-' prefix",
+      "Modern reference to online dating"
+    ],
+    "explanation": "The joke works by setting up the familiar wisdom phrase but substituting a similar-sounding word that shifts the meaning to personal failure. The dating profile punchline makes it relatable and contemporary while delivering the self-deprecating surprise efficiently.",
+    "api_time_seconds": 9.1,
+    "from_cache": false,
+    "metadata": {
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": false,
+      "timestamp": 1763125858.953565,
+      "git_commit": "78e8fac2a4f9049c3cf264a507cddec785afaff0",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
   }
 ]

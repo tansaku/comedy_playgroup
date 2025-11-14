@@ -55,16 +55,19 @@ pipenv run python src/evaluation/assessor.py --random-model --evaluate "My joke 
 - `anthropic/claude-3.5-sonnet` - Top reasoning, excellent for comedy analysis
 - `anthropic/claude-3-opus` - Most capable Claude model
 - `anthropic/claude-3-haiku` - Fast and affordable
-- `openai/gpt-4o` - Latest GPT-4 model
-- `openai/gpt-4o-mini` - Smaller, faster GPT-4
+- `openai/gpt-4o` - Latest GPT-4 model (supports structured outputs)
+- `openai/gpt-4o-mini` - Smaller, faster GPT-4 (supports structured outputs)
 - `google/gemini-pro-1.5` - Google's flagship model
 - `google/gemini-flash-1.5` - Fast Google model
 - `meta-llama/llama-3.1-70b-instruct` - Open-source powerhouse
 - `meta-llama/llama-3.1-405b-instruct` - Largest Llama model
 - `mistralai/mistral-large` - Mistral's best model
-- `x-ai/grok-2` - Grok by xAI
 
 You can use **any** model from OpenRouter - see https://openrouter.ai/models for the full list!
+
+### Note on Structured Outputs
+
+Some models (primarily OpenAI models like `gpt-4o`, `gpt-4o-mini`) support OpenAI's structured output format (`json_schema`), which provides more reliable JSON responses. For other models, the code automatically falls back to regular JSON mode. Both work well, but structured outputs are slightly more reliable.
 
 ## Backward Compatibility
 
@@ -110,11 +113,21 @@ Check current pricing at https://openrouter.ai/models
 - Make sure you've exported the environment variable or added it to `.env`
 - If using `.env`, ensure `python-dotenv` is installed (it's in Pipfile)
 
-**Error: "Model not found"**
+**Error: "Model not found" or "No endpoints found for x/model"**
 - Check the model name at https://openrouter.ai/models
 - Model names are case-sensitive and use format: `provider/model-name`
+- Some models may not be available in all regions
+- Try a different model from the popular list above
+
+**Error: "[no joke generated]" or empty responses**
+- This was fixed in the latest version - the code now automatically handles different model capabilities
+- If you still see this, the model might have rate limits or availability issues
+- Try a different model or check your OpenRouter account status
 
 **Unexpected results**
 - Different models have different strengths and styles
 - Try adjusting prompts or using different models for comparison
+- Claude models tend to be more verbose and analytical
+- GPT models are typically more concise
+- Llama models vary in style but are generally creative
 

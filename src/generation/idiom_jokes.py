@@ -37,6 +37,7 @@ CACHE_FILE = os.path.join("caches", "idiom_joke_cache.json")
 BASELINE_NAME_DEFAULT = "refined_7s"
 
 # Popular OpenRouter models for random selection
+# Note: Only including models verified to work with our prompts
 POPULAR_OPENROUTER_MODELS = [
     "anthropic/claude-3.5-sonnet",
     "anthropic/claude-3-opus",
@@ -48,7 +49,18 @@ POPULAR_OPENROUTER_MODELS = [
     "meta-llama/llama-3.1-70b-instruct",
     "meta-llama/llama-3.1-405b-instruct",
     "mistralai/mistral-large",
-    "x-ai/grok-2",
+]
+
+# Models that support OpenAI's structured output (json_schema)
+STRUCTURED_OUTPUT_MODELS = [
+    "openai/gpt-4o",
+    "openai/gpt-4o-mini",
+    "openai/gpt-4-turbo",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-5",
+    "gpt-5-mini",
+    "gpt-5-nano",
 ]
 
 
@@ -148,13 +160,13 @@ IDIOM: "{idiom}"
 
 TARGETED MECHANISMS (pick whichever fits best for this idiom, or combine tastefully):
 1) Phonetic + Semantic Reinforcement:
-   - Create a witty transformation whose sound pattern (alliteration, initial-consonant echo, rhyme) mirrors the idiom’s cadence
-   - While the new content semantically reinforces or cleverly inverts the idiom’s meaning
+   - Create a witty transformation whose sound pattern (alliteration, initial-consonant echo, rhyme) mirrors the idiom's cadence
+   - While the new content semantically reinforces or cleverly inverts the idiom's meaning
    - Example of the underlying idea (do NOT copy directly): turning a phrase like "expect the unexpected" into "expect the unexporcupine" (Michael Stranney) where the sentence seems to be completing normally but ends with something unexpected that until the last moment seems like part of the normal cadence of the idiom
 
 2) Brag-Setup → Humiliating Reveal:
    - Start with a common boasty setup (a chestnut ad copy or self-help cliché)
-   - End with a vivid, embarrassing image that undercuts the brag in a way that’s surprising yet inevitable
+   - End with a vivid, embarrassing image that undercuts the brag in a way that's surprising yet inevitable
    - Example of the underlying idea (do NOT copy directly): subverting "my friends laughed when I said I'd be a stand-up comic, but no one's laughting now" (Bob Monkhouse) i.e. nobody laughs now because the performance is bombing, but usually nobody laughing now would mean success
 
 QUALITY RULES:
@@ -162,9 +174,18 @@ QUALITY RULES:
 - Use tight language; land on the funniest, most concrete word
 - Specific words or slightly uncommon words can be funnier than generic ones, e.g. "porcupine" is funnier than "animal"
 - Avoid forced puns; the phonetics should feel natural, not contorted
-- The joke must stand on its own; don’t explain it inside the joke
+- The joke must stand on its own; don't explain it inside the joke
 
-Return a JSON object matching the schema.
+IMPORTANT: Return ONLY a valid JSON object with this exact structure:
+{{
+    "idiom": "{idiom}",
+    "joke": "your funny one-liner here (1-2 sentences)",
+    "transformation": "brief description of how you transformed the idiom",
+    "mechanisms": ["mechanism1", "mechanism2"],
+    "phonetic_devices": ["device1", "device2"],
+    "semantic_devices": ["device1", "device2"],
+    "explanation": "brief explanation of why this works"
+}}
 """
 
     schema = {
@@ -225,32 +246,83 @@ Return a JSON object matching the schema.
     else:
         client = openai.OpenAI()
 
+    # Check if model supports structured outputs (json_schema)
+    supports_structured_output = cfg.model in STRUCTURED_OUTPUT_MODELS
+
     start_time = time.time()
-    response = client.chat.completions.create(
-        model=cfg.model,
-        messages=[{"role": "user", "content": prompt}],
-        response_format={
+
+    # Build request parameters
+    request_params = {
+        "model": cfg.model,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+
+    if supports_structured_output:
+        # Use strict structured output for compatible models
+        request_params["response_format"] = {
             "type": "json_schema",
             "json_schema": {"name": "idiom_joke", "strict": True, "schema": schema},
-        },
-        seed=cfg.random_seed if cfg.random_seed is not None else None,
-    )
+        }
+    else:
+        # For other models, just use simple JSON mode
+        request_params["response_format"] = {"type": "json_object"}
+
+    if cfg.random_seed is not None:
+        request_params["seed"] = cfg.random_seed
+
+    response = client.chat.completions.create(**request_params)
     api_time = time.time() - start_time
 
     try:
-        result = json.loads(response.choices[0].message.content)
+        content = response.choices[0].message.content
+        result = json.loads(content)
+
+        # Ensure idiom field is set correctly
         result["idiom"] = idiom
-    except (json.JSONDecodeError, KeyError):
-        # Fallback minimal structure
-        text = response.choices[0].message.content.strip()
+
+        # Handle different field naming conventions (Claude sometimes uses "one_liner" instead of "joke")
+        if not result.get("joke") and result.get("one_liner"):
+            result["joke"] = result["one_liner"]
+        elif not result.get("joke") and result.get("one-liner"):
+            result["joke"] = result["one-liner"]
+
+        # Ensure we have required fields with defaults
+        if not result.get("joke"):
+            print(
+                f"[DEBUG] Response missing 'joke' field. Available fields: {list(result.keys())}"
+            )
+            result["joke"] = ""
+
+        if not result.get("transformation") and result.get("mechanism_used"):
+            result["transformation"] = result["mechanism_used"]
+
+        if not result.get("mechanisms"):
+            result["mechanisms"] = [result.get("mechanism_used", "unknown")]
+
+        if not result.get("phonetic_devices"):
+            result["phonetic_devices"] = []
+
+        if not result.get("semantic_devices"):
+            result["semantic_devices"] = []
+
+        if not result.get("explanation"):
+            result["explanation"] = result.get("explanation", "")
+
+    except (json.JSONDecodeError, KeyError) as e:
+        # Fallback minimal structure with debugging
+        content = response.choices[0].message.content.strip()
+        print(f"[DEBUG] JSON parsing failed: {e}")
+        print(f"[DEBUG] Raw response (first 500 chars): {content[:500]}")
+
+        # Try to extract joke from the response even if JSON parsing failed
         result = {
             "idiom": idiom,
-            "joke": text,
-            "transformation": "fallback",
+            "joke": content if len(content) < 500 else "",
+            "transformation": "fallback - parsing failed",
             "mechanisms": ["unknown"],
             "phonetic_devices": [],
             "semantic_devices": [],
-            "explanation": "Parsing failed",
+            "explanation": f"Parsing failed: {str(e)}",
         }
 
     # Add timing information
