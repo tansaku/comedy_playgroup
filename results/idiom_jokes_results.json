@@ -343,5 +343,70 @@
       "beats_majority": true,
       "qualifies_for_baseline": true
     }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "I live by 'expect the unexpected'—which is why my coffee machine just launched into a TED Talk about my procrastination.",
+    "transformation": "Phonetic and semantic reinforcement: preserves the idiom's cadence while reinterpreting 'the unexpected' as a modern, tangible agent (a coffee machine giving a TED Talk).",
+    "mechanisms": [
+      "Phonetic reinforcement (cadence echo)",
+      "Semantic reinforcement (embodiment of the unexpected as a device)",
+      "Misdirection"
+    ],
+    "phonetic_devices": [
+      "cadence echo",
+      "end-stopped rhythm"
+    ],
+    "semantic_devices": [
+      "inversion of expectation",
+      "personification"
+    ],
+    "explanation": "The joke keeps the idiom recognizable but delivers a fresh, vivid twist by personifying a mundane kitchen appliance as a TED Talk speaker, delivering the 'unexpected' as a concrete, humorous scene.",
+    "api_time_seconds": 38.836,
+    "from_cache": true,
+    "metadata": {
+      "model": "gpt-5-nano",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1763115716.597402,
+      "git_commit": "591a568a8c5ecb1dfb1fdcc5488f3ac551582826",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
+  },
+  {
+    "idiom": "expect the unexpected",
+    "joke": "Expect the unex—text from your ex at 2:06 a.m.",
+    "transformation": "Truncate 'unexpected' at 'unex' and pivot to a modern, specific twist ('text from your ex') that mirrors the idiom’s cadence.",
+    "mechanisms": [
+      "misdirection",
+      "cadence echo",
+      "specificity",
+      "phonetic-semantic reinforcement"
+    ],
+    "phonetic_devices": [
+      "initial-consonant echo ('ex/text/ex')",
+      "assonance",
+      "slant rhyme",
+      "caesura/dash pause",
+      "cadence echo"
+    ],
+    "semantic_devices": [
+      "reinforcement",
+      "misdirection",
+      "specificity"
+    ],
+    "explanation": "You expect the completion 'unexpected' but get a pivot at 'unex' to a relatable late-night ex-text; the familiar cadence stays while the meaning swerves, creating a sharp modern surprise.",
+    "api_time_seconds": 24.772,
+    "from_cache": false,
+    "metadata": {
+      "model": "gpt-5",
+      "prompt_version": "1.1-idiom",
+      "random_seed": 42,
+      "use_cache": true,
+      "timestamp": 1763115760.465466,
+      "git_commit": "591a568a8c5ecb1dfb1fdcc5488f3ac551582826",
+      "python_version": "3.12.11 (main, Jun 13 2025, 22:44:55) [Clang 16.0.0 (clang-1600.0.26.6)]"
+    }
   }
 ]

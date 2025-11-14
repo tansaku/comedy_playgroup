@@ -1,0 +1,10 @@
+[project]
+name = "comedy_playgroup"
+version = "0.1.0"
+description = "Comedy generation and evaluation for the comedy playgroup"
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+

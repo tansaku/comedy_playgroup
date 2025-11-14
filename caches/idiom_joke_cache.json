@@ -80,5 +80,31 @@
     "explanation": "Keeps the idiom recognizable but pivots to a vivid, relatable image of struggling through a pitch deck; the dental motif reinforces 'teeth' while the self-deprecating twist lands the joke with a concrete, modern context.",
     "api_time_seconds": 38.875,
     "from_cache": false
+  },
+  "expect the unexpected|gpt-5|1.1-idiom": {
+    "idiom": "expect the unexpected",
+    "joke": "Expect the unex—text from your ex at 2:06 a.m.",
+    "transformation": "Truncate 'unexpected' at 'unex' and pivot to a modern, specific twist ('text from your ex') that mirrors the idiom’s cadence.",
+    "mechanisms": [
+      "misdirection",
+      "cadence echo",
+      "specificity",
+      "phonetic-semantic reinforcement"
+    ],
+    "phonetic_devices": [
+      "initial-consonant echo ('ex/text/ex')",
+      "assonance",
+      "slant rhyme",
+      "caesura/dash pause",
+      "cadence echo"
+    ],
+    "semantic_devices": [
+      "reinforcement",
+      "misdirection",
+      "specificity"
+    ],
+    "explanation": "You expect the completion 'unexpected' but get a pivot at 'unex' to a relatable late-night ex-text; the familiar cadence stays while the meaning swerves, creating a sharp modern surprise.",
+    "api_time_seconds": 24.772,
+    "from_cache": false
   }
 }
