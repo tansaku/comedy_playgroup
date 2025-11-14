@@ -36,6 +36,21 @@ RESULTS_FILE = os.path.join("results", "idiom_jokes_results.json")
 CACHE_FILE = os.path.join("caches", "idiom_joke_cache.json")
 BASELINE_NAME_DEFAULT = "refined_7s"
 
+# Popular OpenRouter models for random selection
+POPULAR_OPENROUTER_MODELS = [
+    "anthropic/claude-3.5-sonnet",
+    "anthropic/claude-3-opus",
+    "anthropic/claude-3-haiku",
+    "openai/gpt-4o",
+    "openai/gpt-4o-mini",
+    "google/gemini-pro-1.5",
+    "google/gemini-flash-1.5",
+    "meta-llama/llama-3.1-70b-instruct",
+    "meta-llama/llama-3.1-405b-instruct",
+    "mistralai/mistral-large",
+    "x-ai/grok-2",
+]
+
 
 # ------------------------------ Data classes -----------------------------
 @dataclass
@@ -196,7 +211,19 @@ Return a JSON object matching the schema.
         "additionalProperties": False,
     }
 
-    client = openai.OpenAI()
+    # Check if using OpenRouter
+    openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+    if openrouter_api_key:
+        client = openai.OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=openrouter_api_key,
+            default_headers={
+                "HTTP-Referer": "https://github.com/tansaku/comedy_playgroup",
+                "X-Title": "Comedy Playgroup",
+            },
+        )
+    else:
+        client = openai.OpenAI()
 
     start_time = time.time()
     response = client.chat.completions.create(
@@ -309,8 +336,12 @@ def main():
         "--model",
         type=str,
         default=GPT_MODEL,
-        choices=["gpt-5", "gpt-5-mini", "gpt-5-nano"],
-        help="GPT model to use (default: gpt-5)",
+        help="Model to use (e.g., gpt-5, anthropic/claude-3.5-sonnet, openai/gpt-4o). For OpenRouter models, set OPENROUTER_API_KEY env variable.",
+    )
+    parser.add_argument(
+        "--random-model",
+        action="store_true",
+        help="Use a random popular OpenRouter model (requires OPENROUTER_API_KEY)",
     )
     parser.add_argument(
         "--no-cache",
@@ -337,6 +368,17 @@ def main():
     # Seed for reproducibility
     if args.seed is not None:
         random.seed(args.seed)
+
+    # Handle random model selection
+    if args.random_model:
+        if not os.getenv("OPENROUTER_API_KEY"):
+            print("[WARN] --random-model requires OPENROUTER_API_KEY to be set")
+            print("[INFO] Available popular OpenRouter models:")
+            for model in POPULAR_OPENROUTER_MODELS:
+                print(f"  - {model}")
+            sys.exit(1)
+        args.model = random.choice(POPULAR_OPENROUTER_MODELS)
+        print(f"[INFO] Randomly selected model: {args.model}")
 
     # Load idioms
     try:

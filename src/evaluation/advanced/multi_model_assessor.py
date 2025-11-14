@@ -48,7 +48,14 @@ class MultiModelJokeAssessor:
         api_key = os.getenv("OPENROUTER_API_KEY")
         if not api_key:
             raise RuntimeError("OPENROUTER_API_KEY not set in environment")
-        self.client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+        self.client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+            default_headers={
+                "HTTP-Referer": "https://github.com/tansaku/comedy_playgroup",
+                "X-Title": "Comedy Playgroup",
+            }
+        )
         self.models = models or DEFAULT_MODELS
         self.cache: Dict[str, Dict[str, float]] = self._load_cache()
 

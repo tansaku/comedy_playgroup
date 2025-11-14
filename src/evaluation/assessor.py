@@ -16,6 +16,21 @@ PAIRWISE_CACHE = os.path.join("caches", "pairwise_cache.json")
 ASSESSOR_VERSION = "1.0.0"
 RANDOM_SEED = 42  # For reproducible pairwise comparisons
 
+# Popular OpenRouter models for random selection
+POPULAR_OPENROUTER_MODELS = [
+    "anthropic/claude-3.5-sonnet",
+    "anthropic/claude-3-opus",
+    "anthropic/claude-3-haiku",
+    "openai/gpt-4o",
+    "openai/gpt-4o-mini",
+    "google/gemini-pro-1.5",
+    "google/gemini-flash-1.5",
+    "meta-llama/llama-3.1-70b-instruct",
+    "meta-llama/llama-3.1-405b-instruct",
+    "mistralai/mistral-large",
+    "x-ai/grok-2",
+]
+
 
 # ------------------------------- Utilities -------------------------------
 def get_git_commit_hash():
@@ -35,7 +50,19 @@ def get_git_commit_hash():
 class JokeAssessor:
     def __init__(self, model: str = DEFAULT_ASSESSMENT_MODEL):
         self.model = model
-        self.client = openai.OpenAI()
+        # Check if using OpenRouter
+        openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+        if openrouter_api_key:
+            self.client = openai.OpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=openrouter_api_key,
+                default_headers={
+                    "HTTP-Referer": "https://github.com/tansaku/comedy_playgroup",
+                    "X-Title": "Comedy Playgroup",
+                }
+            )
+        else:
+            self.client = openai.OpenAI()
         self.cache = self._load_cache()
         self.pairwise_cache = self._load_pairwise_cache()
 
@@ -415,14 +442,20 @@ class JokeAssessor:
 
 
 def main():
+    import random
+
     parser = argparse.ArgumentParser(description="Joke Assessment Tool")
     parser.add_argument("--evaluate", type=str, help="Evaluate a single joke")
     parser.add_argument(
         "--model",
         type=str,
         default=DEFAULT_ASSESSMENT_MODEL,
-        choices=["gpt-5", "gpt-5-mini", "gpt-5-nano"],
-        help="GPT model to use (default: gpt-5)",
+        help="Model to use (e.g., gpt-5, anthropic/claude-3.5-sonnet, openai/gpt-4o). For OpenRouter models, set OPENROUTER_API_KEY env variable.",
+    )
+    parser.add_argument(
+        "--random-model",
+        action="store_true",
+        help="Use a random popular OpenRouter model (requires OPENROUTER_API_KEY)",
     )
     parser.add_argument("--baseline", type=str, help="Create baseline from file")
     parser.add_argument(
@@ -432,6 +465,18 @@ def main():
         "--list-baselines", action="store_true", help="List available baselines"
     )
     args = parser.parse_args()
+
+    # Handle random model selection
+    if args.random_model:
+        if not os.getenv("OPENROUTER_API_KEY"):
+            print("[WARN] --random-model requires OPENROUTER_API_KEY to be set")
+            print("[INFO] Available popular OpenRouter models:")
+            for model in POPULAR_OPENROUTER_MODELS:
+                print(f"  - {model}")
+            sys.exit(1)
+        args.model = random.choice(POPULAR_OPENROUTER_MODELS)
+        print(f"[INFO] Randomly selected model: {args.model}")
+
     assessor = JokeAssessor(args.model)
 
     if args.evaluate:
